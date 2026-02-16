@@ -1,0 +1,102 @@
+\chapter{One extra test on other case study}
+
+To get a better insight in the performance of the new developed dynamic programming solution an extra test is carried out on an other model. The model used is a very simple 2-cluster tool model that originates from the paper "Aggregative Synthesis of Distributed Supervisors based on Automaton Abstraction" by Rong Su, Jan H. van Schuppen and Jacobus E. Rooda \cite{Rongsu2}. %The model structure is given in appendix \ref{app:extramodel}
+
+\section{Results}
+The results from this test are given in table\ref{table:results2}. 
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$\#$Jobs & shortest path & optimal makespan & Sub-optimal makespan & $\#$States & $\#$transitions \\
+\hline\hline
+1& 34 & 34 & 34 & 13 & 12  \\
+\hline
+2 &54 & 54 & 54 & 36 & 46 \\
+\hline
+3 &74& 74 & 74 &59 & 80 \\
+\hline
+4 &94& - & 94 & 82 & 114\\
+\hline
+5 &114& - & 114 & 105 &148\\
+\hline
+6 &134& - & 134 & 128 &182\\
+\hline
+7 &154 & - &154 &151 &216\\
+\hline
+8 &174 & - &174 &174 &250\\
+\hline
+9 &194 & - &194 &197 &284\\
+\hline
+10 &214 & - &214 &220 &318\\
+\hline
+11 &234 & - &234 &243 &352 \\
+\hline
+12 &254 & - &254 &266 &386 \\
+\hline
+13 &274 & - &274 &289 &420\\
+\hline
+14 &294 & - &294 &312 &454\\
+\hline
+15 &314& - &314 &335 &488\\
+\hline
+20 &414 & - &414 &450 &658\\
+\hline
+\end{tabular}
+\caption{Results of using dynamic programming approach for 2-cluster tool model}
+\label{table:results2}
+\end{center}
+\end{table}
+
+With this model the algoritme used in \cite{Rongsu} can calculate a optimal makespan up to three jobs, but with four or more jobs the size of the supervisor before abstraction becomes too large to handle by the serack servers. The new dynamic programming algoritme gives the same results as the shortest path calculation and the optimal makespan calculation from the old algoritme but with shorter calculation times and manageable supervisor sizes. So it seems that there are no controllability issues in calculation done by the shortest path calculation. The results look promising.
+\section{Short data analaysis}
+Next the individual data is analyzed. The increase of each individual value is analyzed. The results are given in table \ref{table:analysis3}.
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multirow{2}{*}{$\#$Jobs} & Increase &Increase & Increase & Increase \\
+& absolute minimum& sub-optimal makespan&$\#$States&$\#$transitions\\
+\hline\hline
+1& - & - & - & - \\
+\hline
+2&20&	20&	23&	34\\
+\hline
+3&20&	20&	23&	34\\
+\hline
+4&20&	20&	23&	34\\
+\hline
+5&20&	20&	23&	34\\
+\hline
+6&20&	20&	23&	34\\
+\hline
+7&20&	20&	23&	34\\
+\hline
+8&20&	20&	23&	34\\
+\hline
+9&20&	20&	23&	34\\
+\hline
+10&20&	20&	23&	34\\
+\hline
+11&20&	20&	23&	34\\
+\hline
+12&20&	20&	23&	34\\
+\hline
+13&20&	20&	23&	34\\
+\hline
+14&20&	20&	23&	34\\
+\hline
+15&20&	20&	23&	34\\
+\hline
+20&100&	100& 115& 170\\
+\hline
+\end{tabular}
+\caption{Results of data analysis of each individual value}
+\label{table:analysis3}
+\end{center}
+\end{table}
+From table \ref{table:analysis3} it seems that for every job added also the same sequence of events is added to the supervisor. This sequence costs 20 time units and has 23 states and 34 transitions. It is hard to test the accuracy with this model because they are the same for both the methods. Calculation times decrease significantly compared to the old algoritme but the accuracy is the same for this test.
+
+\section{conclusion}
+The new algoritme performs good for this test. However the 2-cluster tool model used is a very simple one and it is advisable to test the new algoritme on more complex models where optimal makespan times deviate from the shortest path calculation. This to see how the algoritme behaves if there are more controllability issues and what the accuracy is. But for now the results from the new algoritme still look very promising. Calculation time is still very short and supervisor sizes are manageable. 
